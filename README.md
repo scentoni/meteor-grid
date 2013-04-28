@@ -1,4 +1,4 @@
 meteor-grid
 ===========
 
-basic version of grid (based on Meteor)
+Hard-coded 2x3 version of grid (based on Meteor).
