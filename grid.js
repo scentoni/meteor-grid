@@ -1,15 +1,23 @@
 if (Meteor.isClient) {
-  var data = [
+  Session.set('data', [
   ['a', 'b', 'c'],
   [1, 2, 3]
-  ];
+  ]);
 
   Template.page.cell = function () {
     return Session.get('coords');
   };
 
+  Template.page.contents = function () {
+    var s = Session.get('coords').split(',');
+    var r = parseInt(s[0]);
+    var c = parseInt(s[1]);
+    return Session.get('data')[r][c];
+  };
+
+
   Template.page.stuff = function () {
-    return data;
+    return Session.get('data');
   };
 
   Template.page.events({
