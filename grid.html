@@ -1,0 +1,23 @@
+<head>
+  <title>grid</title>
+</head>
+
+<body>
+  {{> page}}
+</body>
+
+<template name="page">
+  <table>
+    <tr>
+      <td><input name="0,0" type="text" value="{{stuff.0.0.}}"/></td>
+      <td><input name="0,1" type="text" value="{{stuff.0.1.}}"/></td>
+      <td><input name="0,2" type="text" value="{{stuff.0.2.}}"/></td>
+    </tr>
+    <tr>
+      <td><input name="1,0" type="text" value="{{stuff.1.0.}}"/></td>
+      <td><input name="1,1" type="text" value="{{stuff.1.1.}}"/></td>
+      <td><input name="1,2" type="text" value="{{stuff.1.2.}}"/></td>
+    </tr>
+  </table>
+  <p/>
+</template>
