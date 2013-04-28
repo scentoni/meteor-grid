@@ -1,8 +1,23 @@
 if (Meteor.isClient) {
+
   Session.set('data', [
-  ['a', 'b', 'c'],
-  [1, 2, 3]
-  ]);
+    ['a', 'b', 'c'],
+    [1, 2, 3]
+    ]);
+  Session.set('numrows', Session.get('data').length);
+  Session.set('numcols', Math.max.apply(null, Session.get('data').map( function(x){return x.length;} ) ) );
+
+  var iota = function (n) {
+    return Array.apply(null, {length: n}).map(Number.call, Number);
+  }
+
+  Template.page.rows = function () {
+    return iota(Session.get('numrows')).map( function (x) {return {row: x};} );
+  };
+
+  Template.page.cols = function () {
+    return iota(Session.get('numcols'));
+  };
 
   Template.page.cell = function () {
     return Session.get('coords');

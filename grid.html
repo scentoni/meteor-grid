@@ -8,18 +8,15 @@
 
 <template name="page">
   <table>
+    {{#each rows}}
     <tr>
-      <td><input name="0,0" type="text" value="{{stuff.0.0.}}"/></td>
-      <td><input name="0,1" type="text" value="{{stuff.0.1.}}"/></td>
-      <td><input name="0,2" type="text" value="{{stuff.0.2.}}"/></td>
+      <td><input name="{{row}},0" type="text" value="{{stuff.row.0.}}"/></td>
+      <td><input name="{{row}},1" type="text" value="{{stuff.row.1.}}"/></td>
+      <td><input name="{{row}},2" type="text" value="{{stuff.row.2.}}"/></td>
     </tr>
-    <tr>
-      <td><input name="1,0" type="text" value="{{stuff.1.0.}}"/></td>
-      <td><input name="1,1" type="text" value="{{stuff.1.1.}}"/></td>
-      <td><input name="1,2" type="text" value="{{stuff.1.2.}}"/></td>
-    </tr>
+    {{/each}}
   </table>
   {{#if cell}}
-    <p>You clicked cell {{cell}} which contains "{{contents}}"</p>
+  <p>You clicked cell {{cell}} which contains "{{contents}}"</p>
   {{/if}}
 </template>
