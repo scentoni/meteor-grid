@@ -19,5 +19,7 @@
       <td><input name="1,2" type="text" value="{{stuff.1.2.}}"/></td>
     </tr>
   </table>
-  <p>You clicked cell {{cell}} which contains "{{contents}}"</p>
+  {{#if cell}}
+    <p>You clicked cell {{cell}} which contains "{{contents}}"</p>
+  {{/if}}
 </template>
