@@ -15,12 +15,20 @@ if (Meteor.isClient) {
     return Session.get('data')[r][c];
   };
 
-
   Template.page.stuff = function () {
     return Session.get('data');
   };
 
   Template.page.events({
+    'keyup input' : function (e, t) {
+      console.log("You changed cell " + e.target.name + " to have the value " + e.target.value);
+      var s = Session.get('coords').split(',');
+      var r = parseInt(s[0]);
+      var c = parseInt(s[1]);
+      var tmp = Session.get('data');
+      tmp[r][c] = e.target.value;
+      Session.set('data', tmp);
+    },
     'click input' : function (e, t) {
       console.log("You clicked cell " + e.target.name);
       Session.set('coords', e.target.name);
