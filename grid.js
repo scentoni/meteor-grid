@@ -16,7 +16,7 @@ if (Meteor.isClient) {
   };
 
   Template.page.cols = function () {
-    return iota(Session.get('numcols'));
+    return iota(Session.get('numcols')).map( function (x) {return {col: x};} );
   };
 
   Template.page.cell = function () {
@@ -30,8 +30,8 @@ if (Meteor.isClient) {
     return Session.get('data')[r][c];
   };
 
-  Template.page.stuff = function () {
-    return Session.get('data');
+  Template.page.stuff = function (i, j) {
+    return Session.get('data')[i][j];
   };
 
   Template.page.events({
