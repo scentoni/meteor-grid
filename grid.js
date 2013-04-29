@@ -37,7 +37,7 @@ if (Meteor.isClient) {
   Template.page.events({
     'keyup input' : function (e, t) {
       console.log("You changed cell " + e.target.name + " to have the value " + e.target.value);
-      var s = Session.get('coords').split(',');
+      var s = e.target.name.split(',');
       var r = parseInt(s[0]);
       var c = parseInt(s[1]);
       var tmp = Session.get('data');
